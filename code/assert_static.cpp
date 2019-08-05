@@ -1,0 +1,1 @@
+static_assert(sizeof(int) <= 4, "max 32 Bit werden unterstuetzt");
