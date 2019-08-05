@@ -1,0 +1,136 @@
+\newpage
+\section{Polymorphismus / Mehrfachvererbung / RTTI}
+   		Dieses Kapitel beschreibt die dynamischen objektorientierten Sprachmerkmale von \lc{C++}. Erst durch diese wird \lc{C++} zu einer echten objektorientierten Programmiersprache.\\
+	%\begin{minipage}[t]{8 cm}
+	\subsection{Polymorphismus}
+		\begin{minipage}[t]{9cm}
+			\subsubsection{Problem}
+			\begin{compactitem}
+				\item Abstrakter Auftrag, aber die Ausführung ist bereits sehr konkret.
+				\item Eine immer gleich heissende Elementfunktion hat unterschiedliche Implementationen, je nach Art des aktuellen Objekts.
+			\end{compactitem}
+			\subsubsection{static Binding}
+			Ist der Normalfall und wird auch early Binding genannt. Hier wird bereits zur Compilezeit festgelegt, welcher Code ausgeführt wird.
+			\subsubsection{dynamic Binding}
+			\begin{compactitem}
+				\item Erst zu Laufzeit wird in Abhängigkeit des Objekts festgelgt, welcher Code ausgeführt wird.
+				\item Das ist das Konzept des Polymorphismus.
+				\item Der mächtigste OO-Mechanismus (oft präziser mit run-time polymorphism bezeichnet)
+				\item Regeln:
+				\begin{compactitem}
+					\item Eine Funktion soll dann virtual deklariert werden, wenn sie in der abgeileiteten Klasse neu	definiert (überschieben) wird, sonst nicht!
+					\item Wenn mindestens eine Elementfunktion virtual ist, muss auch der Destruktor virtual sein.
+					\item Der Destruktor muss auch dann virtual sein, wenn ein Objekt einer Unterklasse dynamisch erzeugt wird und einem Pointer auf die Basisklasse zugewiesen wird (Substitutionsprinzip)
+					\\
+				\end{compactitem}
+			\end{compactitem}
+		\end{minipage}
+		\hspace*{0.5cm}
+		\begin{minipage}[t]{9	cm}
+			\subsubsection{Beispiel}
+				\begin{compactitem}
+					\item Der statische Datentyp bezeichnet den Datentyp bei der Deklaration. Im Beispiel: \lc{a} ist ein Array von Pointer auf \lc{Article}
+					\item Der dynamische Datentyp bezeichnet den effektiven Datentyp zur Laufzeit Im Beispiel: \lc{a[0]} ist ein Pointer auf \lc{Book}, \lc{a[1]} ein Pointer auf \lc{CD}, etc.
+				\end{compactitem}
+				\includegraphics[width=1\textwidth]{pics/bsp_Webshop.jpg}
+		\end{minipage}
+		
+	\begin{minipage}[t]{7 cm}
+		\subsubsection{Polymorphe (virtuelle) Klassen}
+			\begin{compactitem}
+		 		\item Eine Klasse, welche mindestens eine virtuelle Funktion deklariert, heisst virtuell (polymorph)
+				\item Virtuelle Klassen bewirken einen Mehraufwand für den Compiler und sind darum langsamer in der Ausführung
+				\item Konstruktoren sind nie virtuell
+				\item Destruktoren virtueller Klassen müssen immer als virtuell deklariert werden,
+				sonst wird nur der Destruktor der Basisklasse aufgerufen
+				\item \textbf{Nicht virtuelle Methoden dürfen nicht überschrieben werden} (könnten technisch gesehen, führt aber zu unüberschaubaren Fehlern)
+				\item In der Unterklasse sollen die überschriebenen Methoden mit override gekennzeichnet werden. Dient der Übersicht und wenn die zu überschreibenden Methode in der Basisklasse nicht virtuell ist, ruft der
+				Compiler aus.
+			\end{compactitem}
+	\end{minipage}
+	\hspace*{0.5cm}
+	\begin{minipage}[t]{11 cm}
+		\subsubsection{Repräsentation polymorpher Objekte im Speicher}
+			\begin{compactitem}
+				\item In der Virtual Function Table (vtbl) vermerkt das System der Reihe nach die Adressen der für eine Klasse gültigen virtuellen Elementfunktionen
+				\item Das System legt für jede polymorphe Klasse eine vtbl an
+				\item Jedes Objekt einer polymorphen Klasse enthält einen Virtual Pointer vptr, welcher auf die vtbl der entsprechenden Klasse zeigt
+			\end{compactitem}
+		\hspace*{0.5cm}\includegraphics[width=1\textwidth]{pics/bsp_vtbl.jpg}
+	\end{minipage}
+	\subsection{Abstrakte Klassen}
+		Eine abstrakte Klasse ist ein Klasse, die mehr oder weniger vollständig ist und dazu dient, Gemeinsamkeiten der abgeleiteten Klassen festzuhalten (z.B. \lc{ComicCharacter}). \lc{ComicCharacter} legt fest, dass alle Comicfiguren die Methoden \lc{print()}, \lc{dance()} und \lc{sing()} verstehen.
+		\begin{compactitem}
+			\item Ein Kreis ist z.B. ein Spezialfall einer Ellipse. Es ist aber nicht sinnvoll, ihn so zu programmieren, da er sonst Eigenschaften erbt, die nicht verwendet werden
+			\item Es wäre möglich, Kreis und Ellipse als zwei unabhängige Klassen zu programmieren. Dann müssten aber alle Eigenschaften, die diese gemeinsam haben, doppelt programmiert werden
+			\item Dies versucht die objektorientierte Programmierung zu vermeiden
+			\item Es ist besser, die Eigenschaften, die Kreise und Ellipsen gemein haben, in einer Basisklasse zu programmieren
+			\item Die Kreis- und Ellipsenklasse erben dann parallel von der gemeinsamen Basisklasse
+			\item Die Basisklasse ist aber unvollständig, es handelt sich um eine abstrakte Klasse
+			\item Es können \textbf{keine} Objekte von abstrakten Klassen gebildet werden
+			\item In \lc{C++} können rein virtuelle Funktionen (pure virtual functions) deklariert werden, die in der Basisklasse nicht von einer Definition begleitet werden. Beispiel:
+			\lstinputlisting[language=C++,tabsize=2]{code/pure_virtual_function.cpp}
+			\textbf{\item Klassen, die mindestens eine rein virtuelle Funktion deklarieren, sind abstrakte Klassen}
+			\item Ist eine Klasse erst einmal als abstrakt definiert, kann diese nur durch Vererbung vervollständigt und dadurch nutzbar gemacht werden \\
+		\end{compactitem}
+		
+	\subsection{Mehrfachvererbung}
+		\begin{minipage}[t]{6.5 cm}
+		Bei der Mehrfachvererbung wird eine Klasse von mehreren Basisklassen abgeleitet. So kann z.B. eine Klasse \lc{DuckHero} definiert werden, die sowohl von \lc{SuperHero} als auch von \lc{SingingComicCharacter} erbt. \\
+		\includegraphics[width=1\textwidth]{pics/uml_mehrfachvererbung.jpg}
+		Guter Einsatz der Mehrfachvererbung ist, wenn alle ausser höchstens einer Basisklasse ausschliesslich aus rein virtuellen Funktionen bestehen (Interfaces). Die neue Klasse implementiert dann die aufgelisteten Interfaces.\\
+		Das obige Beispiel ist im Anhang unter 15.4 angehängt.
+		\end{minipage}\hspace*{0.5cm}
+		\begin{minipage}[t]{11.5 cm}
+			Der Syntax bei der Mehrfachvererbung lautet wie folgt (Basisklassen durch Komma getrennt). Dabei müssen die Konstruktoren der Basisklassen in der Ordnung gelistet werden, in der sie aufgerufen werden sollen:
+			\lstinputlisting[language=C++,tabsize=2]{code/mehrfachvererbung.cpp}
+			Durch die Mehrfachverbung treten oft Probleme auf. Problem 1 ist jenes der Mehrdeutigkeit von Methoden. Im Fall von \lc{print()} ergeben sich mehrere Möglichkeiten. Um die Mehrdeutigkeit zu umgehen, muss der Gültigkeitsbereich angegeben werden:
+			\lstinputlisting[language=C++,tabsize=2]{code/mehrdeutigkeit.cpp}
+			Oder noch besser:
+			\lstinputlisting[language=C++,tabsize=2]{code/mehrdeutigkeit2.cpp}
+			Das Problem 2 ist das von mehrfachen Basisklassen (linker und rechter Baum). \lc{DuckHero} ist von \lc{Duck} und \lc{SuperHero} abgeleitet und beinhaltet somit zwei \lc{ComicCharacter}-Teile. Diese Mehrdeutigkeit kann durch virtuelles erben verhindert werden. Dies muss jedoch bereits eine Stufe höher geschehen.
+		\end{minipage}
+\newpage
+	\subsection{RTTI (Laufzeit-Typinformation)}
+	RTTI (Run-Time Type Information) ist die Möglichkeit den Typ eines Objekts einer polymorphen Klasse festzustellen. Er steht ausschliesslich für polymorphe Klassen zur Verfügung und sollte sehr zurückhaltend eingesetzt werden.\linebreak
+	Der RTTI-Mechanismus besteht im Wesentlichen aus zwei Operatoren und einer Struktur:
+		\begin{compactitem}
+			\item Operator \lc{dynamic\_cast}
+			\item Operator \lc{typeid}
+			\item Klasse \lc{type\_info}
+		\end{compactitem}
+	\subsubsection{Operator dynamic\_cast}
+	Syntax: 	\lstinputlisting[language=C++,tabsize=2]{code/dynamic_cast.cpp}
+		\begin{compactitem}
+			\item Versucht, den Zeiger \lc{p} in einen Zeiger auf ein Objekt des Typs \lc{SuperHero}
+			umzuwandeln
+			\item Der dynamische Datentyp von \lc{p} ist massgebend
+			\item Umwandlung wird dann durchgeführt, wenn \lc{p} tatsächlich auf ein Objekt vom Typ \lc{SuperHero}, bzw. auf eine davon abgeleitete Klasse zeigt.
+			\item Andernfalls ist das Resultat der Umwandlung der Nullpointer!
+		\end{compactitem}
+	\subsubsection{Operator typeid}
+		\begin{compactitem}
+			\item Ermitteln des dynamischen Datentyps eines polymorphen Objekts
+			\item Ergibt eine Referenz auf ein Objekt des Typs \lc{type\_info}. Diese Klasse beinhaltet u.a. eine Methode \lc{name()}, welche den Namen der Klasse zurückgibt.
+		Beispiel: \lstinputlisting[language=C++,tabsize=2]{code/typeid.cpp}
+		\end{compactitem}
+	\subsubsection{Struktur type\_info}
+		Die Struktur muss eingebunden werden
+		\lstinputlisting[language=C++,tabsize=2]{code/type_info.cpp}
+		Sie bietet mind. folgende Funktionalität:
+		\begin{compactitem}
+			\item die Operatoren \lc{==} und \lc{!=}
+			\item die Methode \lc{before}
+			\item die Methode \lc{name} (siehe Beispiel oben)
+		\end{compactitem}
+	
+\vspace*{1.5cm}\section{Assertions}
+	Um Assertions überhaupft nutzen zu können muss zuerst die entsprechende Bibliothek eingebunden werden:
+	\lstinputlisting{code/assert_include.cpp}
+	Assertions dienen zur Überprüfung von logischen Annahmen während der Entwicklungsphase, speziell für die Überprüfung von Anfangs- und Endbedingungen in einer Funktion. Wenn die Bedingung \lc{false} ist, bricht das Programm ab. Es darf aber kein Nebeneffekt hineinprogrammiert werden, da asserts in der Release-Funktion wirkungslos sind.\\
+	Beispiel:
+	\lstinputlisting{code/assert.cpp}
+	\subsection{\lc{static\_assert}}
+		Diese Art von Assertions werden bereits zur Compilezeit überprüft und man kann eine Textmeldung ausgeben falls Bedingung \lc{false} ist. Da die Bedingung zwingend zur Compilezeit auswertbar sein muss, darf sie keine Variablen o.ä. beinhalten. Werden vorallem im Zusammenhang mit Templates genutzt.\\
+		Beispiel:
+		\lstinputlisting{code/assert_static.cpp}

@@ -1,0 +1,102 @@
+%Dokumentinformationen
+\newcommand{\titleinfo}{ProgCPP - Zusammenfassung}
+\newcommand{\authorinfo}{J. Brupbacher}
+\newcommand{\versioninfo}{$Revision: $ \today}
+
+% standard header
+\include{sections/header} % ./header.tex nicht editieren (Projekt LaTeX-Header benutzen)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Neue Befehle und Definitionen                
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This is needed for one more subsection, ex. 1.1.1.1, is called by \paragraph{}
+\usepackage{titlesec}
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+% Settings which are used to set the distance above and under the sections
+%\titlespacing*{\paragraph}{0pt}{2.25ex plus 1ex minus .2ex}{1.0ex plus .2ex}
+\titlespacing{\section}{0em}{0.5em}{0.5em}
+\titlespacing{\subsection}{0em}{0.5em}{0.5em}
+\titlespacing{\subsubsection}{0em}{0.5em}{0.5em}
+
+% Linksbündig
+\setlength\parindent{0ex}
+
+% This is needed for a smaller itemlist, is called by \compactenum {}
+\usepackage{paralist}
+
+% This is needed for merging some columns in a table
+\usepackage{multicol} 
+\usepackage{multirow}
+
+% This is needed for code listing
+\usepackage{listings}
+
+% This is needed for UML Diagrams
+\usepackage{tikz}
+\usepackage{pgf-umlcd}
+
+% Courier font
+\usepackage{courier}
+
+\definecolor{red}{rgb}{1,0,0}
+\definecolor{blue}{rgb}{0,0,1}
+\definecolor{black}{rgb}{0,0,0}
+\newcommand{\verweisc}[1]{$_{\textcolor{red}{\mbox{\small{C Kap. #1}}}}$}
+\newcommand{\verweiscpp}[1]{$_{\textcolor{blue}{\mbox{\small{C++ Kap. #1}}}}$}
+\newcommand{\verweisboth}[2]{$_{\textcolor{red}{\mbox{\small{C Kap. #1}}}}$$_{\textcolor{black}{\mbox{\small{, }}}}$$_{\textcolor{blue}{\mbox{\small{C++ Kap. #2}}}}$}
+\newcommand{\verweishoch}[1]{${\textcolor{red}{\mbox{\small{Kapitel #1}}}}$}
+\newcommand{\lc}[1]{\textit{\texttt{#1}}}
+
+%Document Anfang
+\begin{document}	
+
+	\title{\fontsize{50}{60}\selectfont ProgCPP}
+	\maketitle
+	\thispagestyle{empty}	% no page number on title page
+	\vspace*{0.5cm}
+	\begin{center}
+		\includegraphics*[width=0.7\textwidth]{pics/2000px-ISO_C++_Logo.png}
+	\end{center}
+	\vspace*{2cm}
+	Auf Vorlage der Zusammenfassung von L. Leuenberger, M. Ehrler, C. Ham, L. Däscher aus FS14 und der Vorlesung von R. Bonderer aus FS19. Die ganze Zusammenfassung richtet sich nach der \lc{C++11} Version.
+	\newpage
+	\setcounter{tocdepth}{2}
+	\tableofcontents
+	\newpage
+	\raggedbottom
+	\lstset{style=cpp}
+
+	\input{sections/01_Ein_und_Ausgabe}
+
+	%\input{sections/02_Lexikalische_Elemente}
+		
+	%\input{sections/03_Einfache_Deklarationen_und_Basisdatentypen}	
+	
+	\input{sections/04_Ausdruecke}	
+
+	%\input{sections/05_Anweisungen}
+
+	\input{sections/06_Funktionen}
+	
+	\input{sections/07_Hoehere_Datentypen_und_strukturierte_Datentypen}
+
+	\input{sections/08_Gueltigkeitsbereiche_Namensraeume_und_Sichtbarkeit}
+		
+	\input{sections/09_Module_und_Datenkapseln}
+	
+	\input{sections/10_Klassenkonzept}
+	
+	\input{sections/11_Templates}	
+	
+	\input{sections/12_Vererbung}
+	
+	\input{sections/13_Polymorphismus}
+	
+	\input{sections/14_Exception_Handling}
+	
+	\include{sections/15_Anhang_Beispiele}			
+
+\end{document}

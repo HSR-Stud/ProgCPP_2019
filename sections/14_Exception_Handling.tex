@@ -1,0 +1,126 @@
+\newpage
+\section{Exception Handling}
+	Abnormale aber vorhersebare und mögliche Bedingung bei der Programmausführung.\\
+	\begin{minipage}[t]{11cm}
+		\subsection{Handling Strategie von System Exceptions}
+			\begin{compactitem}
+				\item In \lc{Java} und \lc{C\#} gelangen die System Exceptions in die Sprache, d.h. eine LowLevel Exception wird in eine Exception der Programmiersprache gemappt.
+				\item Die Sprache \lc{C++} betreibt kein solches Exception Mapping, d.h. Low-Level 
+				Exceptions werden nicht von \lc{C++} geworfen und können auch nicht mit
+				\lc{catch(...)} abgefangen werden.
+				\item Der Hauptgrund dafür ist einmal mehr Effizienz. Wenn ständig Exceptions
+				herumfliegen (auch wenn sie nicht abgefangen werden), dann beeinträchtigt
+				das die Performance.
+				\item Einzelne Systemumgebungen betreiben dennoch Exception Mapping in \lc{C++}
+				(z.B. \lc{Microsoft} in \lc{Visual C++}).
+			\end{compactitem}
+	\end{minipage}
+	\hspace*{0.5cm}
+	\begin{minipage}[t]{7cm}
+		\subsection{Ziel}
+		\begin{compactitem}
+			\item Der Normalfall soll einfach gelesen werden können
+			\item Der Ausnahmefall ist klar und einfach geregelt
+			\item Der Overhead soll möglichst klein sein
+			\item Die Weiterreichung an die nächsthöhere Funktion im Call Stack soll einfach sein
+		\end{compactitem}
+	\end{minipage}
+
+	\subsection{Exceptionhandling in \lc{C++}}
+	\begin{compactitem}
+		\item Exceptions werden in Form eines Objekts am Ort ihres Auftretens ausgeworfen (explizit oder auch "automatisch").
+		\item Exception Handler versuchen, diese Exception-Objekte aufzufangen.
+	\end{compactitem}
+
+	\begin{minipage}[t]{9 cm}
+		\subsubsection{Auslösen (Werfen) von Ausnahmen}
+			\begin{compactitem}
+				\item Ausnahmen können mit dem Schlüsselwort \lc{throw} explizit ausgeworfen werden.
+				\item Nach einem \lc{throw}-Befehl wird das Programm abgebrochen und beim ersten passenden umgebenden Handler fortgesetzt.
+				\item Dabei werden alle lokalen Objekte wieder automatisch zerstört (Stack unwinding).
+				\item Geworfen werden kann ein beliebiges Objekt (üblich: ein spezifisches \lc{C++}-Ausnahmeobjekt).
+				\item (Ausschliesslich) innerhalb eines Exception Handlers ist auch die Form
+				\lc{throw;} erlaubt. Dadurch wird die Exception an den	nächsten Handler weitergereicht (Exception propagation).
+			\end{compactitem}	
+	\end{minipage}
+	\hspace*{0.5cm}
+	\begin{minipage}[t]{9 cm}
+		\subsubsection{Syntax}
+			\lstinputlisting[language=C++,tabsize=2]{code/exception_handling.cpp}
+	\end{minipage}
+	\\
+	
+	\begin{minipage}[t]{11 cm}
+		\subsubsection{Exception-Hierarchie in \lc{C++} und ihre Headers}		 	
+			Ausnahmeobjekte können beliebigen Typs sein (z.B. auch \lc{int}). Meist werden jedoch spezifische hierarchisch organisierte Ausnahmeklassen verwendet.\\
+			\includegraphics[width=1\textwidth]{pics/exception_hierarchy.png}
+	\end{minipage}
+	\hspace*{0.5cm}
+	\begin{minipage}[t]{7 cm}
+		\subsubsection{Laufzeit- vs. Logische Fehler}
+			\begin{compactitem}
+				\item Logische "Fehler" (logic\_error)
+				\begin{compactitem}
+					\item Ausnahmen im Programmablauf, die bereits zur Entwicklungszeit ihre Ursache	haben.
+					\item Theoretisch könnten diese Ausnahmen verhindert werden.
+				\end{compactitem}
+				\item Laufzeit "Fehler" (runtime\_error)
+				\begin{compactitem}
+					\item Nicht vorhersehbare Ausnahmen wie z.B. arithmetische Überläufe.
+					\item Diese Ausnahmen treten erst zur Laufzeit auf, z.B. durch eine nicht erlaubte Benutzereingabe.
+				\end{compactitem}
+			\end{compactitem}
+	\end{minipage}
+	
+	%\begin{minipage}[t]{9 cm}
+	\newpage
+		\subsubsection{Mehrere Catches}
+			\begin{compactitem}
+				\item Ein oder mehrere Exception Handler können hintereinander definiert werden.
+				\item Die einzelnen \lc{catch}-Handler müssen sich in den Parametern unterscheiden.
+				\item Wenn eine Exception geflogen kommt, wird der erste passende Handler
+				genommen. Ein passender Handler macht ein \lc{catch} auf genau diese Exception oder auf eine Basisklasse derselben.
+				\item Deshalb (sehr wichtig): Der allgemeinste Handler (am meisten oben in der Hierarchie) muss als letzter definiert werden.
+				\item Wenn kein Handler passt, dann wird im Aufrufstack nach oben gesucht, ob ein	passender Handler vorhanden ist.
+				\item Wenn auch dort keiner gefunden wird, dann wird die Funktion \lc{terminate()} aufgerufen.
+				\item \lc{terminate()} beendet das Programm, kann aber auch selbst definiert werden.
+				\item Catch all: Der folgende Handler fängt ausnahmslos alle Exceptions ab (und muss wenn gewünscht deshalb immer als letzter aufgeführt werden):	
+			\end{compactitem}
+			
+			\hspace*{0.8cm}
+			\begin{minipage}[t]{4cm}
+				\lstinputlisting{code/catch_all.cpp}
+			\end{minipage}
+			\hspace*{3cm}
+			\begin{minipage}[t]{10cm}
+				\vspace*{-0.3cm}\includegraphics[width=\textwidth]{pics/exceptions.png}
+			\end{minipage}
+									
+		\vspace*{-0.8cm}\paragraph{Exception Specification}
+			\lc{void foo() throw(/* Liste der Exceptions */);}
+			\begin{compactitem}
+				\item Liste beschreibt, welche Exceptions von einem Aufrufer von \lc{foo()} erwartet werden müssen.
+				\item Aber: garantiert auch, dass das Programm abstürzt, wenn eine andere als die	spezifizierten Exceptions ausgeworfen wird, d.h. \lc{foo()} muss dafür sorgen, dass wirklich nur die aufgelisteten Exceptions ausgeworfen werden.
+				\item Genauer: falls eine nicht spezifizierte Exception ausgeworfen wird, dann wird die Funktion \lc{unexpected()} aufgerufen, welche üblicherweise das Programm abbricht.
+				\item \lc{unexpected()} kann selbst definiert werden.
+				\item {\bf Ab \lc{C++11} gilt jedoch:}
+				\begin{compactitem}
+					\item Exception Specifications sind deprecated (sollen nicht mehr verwendet werden)
+					\item Aber: dafür wurde ein neues Schlüsselwort \lc{noexcept} eingeführt, um anzugeben, dass eine Funktion keine
+					Exceptions auswirft (na ja)
+					\item \lc{noexcept} ist auch ein Operator, dem als Argument ein Funktionspointer übergeben werden kann
+					\begin{compactitem}
+						\item returns \lc{true}, falls Funktion mit \lc{noexcept} spezifiziert ist
+						\item sonst \lc{false}
+					\end{compactitem}
+				\end{compactitem}
+			\end{compactitem}
+	%\end{minipage}
+	%\hspace*{0.5cm}
+	%\begin{minipage}[t]{10 cm}
+		\vspace*{0.2cm}
+		{\bf Beispiele:}
+		\lstinputlisting{code/exception_specification.cpp}
+		{\bf Beispiele ab \lc{C++11}:}
+		\lstinputlisting{code/exception_specification_11.cpp}
+	%\end{minipage}

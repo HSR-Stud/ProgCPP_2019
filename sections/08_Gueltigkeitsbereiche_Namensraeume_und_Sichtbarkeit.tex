@@ -1,0 +1,97 @@
+\newpage
+\section{Gültigkeitsbereiche, Namensräume und Sichtbarkeit}
+	\subsection{Namensräume}
+		\begin{minipage}[t]{4.5 cm}
+			\lstinputlisting{code/namespace.cpp}
+		\end{minipage}
+		\begin{minipage}[t]{14.5 cm}
+			Namensräume sind Gültigkeitsbereiche, in denen beliebige Bezeichner (Variablen, Klassen, Funktionen, andere Namensräume, Typen, etc.) deklariert werden können.
+			\begin{compactitem}
+				\item Ein Namensraum kann deklariert werden. Alle enthaltenen Objekte werden diesem Namensraum zugeordnet. Auf Bezeichner eines Namensraumes kann mit dem Scope Operator \lc{::} zugegriffen werden.
+				\item Einem Namensraum kann ein so genannter Alias zugeordnet werden, über den er angesprochen wird. \\
+				\lc{namespace FBSSLIB = Financial\_Branch\_and\_System\_Service\_Library;}
+				\item Eine so genannte \lc{Using}-Deklaration erlaubt den direkten Zugriff auf einen Bezeichner eines Namensraumes. \\
+				\lc{using MyLib1::foo;} \\
+				\lc{foo();}
+				\item Mit einer so genannten \lc{Using}-Direktive kann auf alle Bezeichner eines Namensraums direkt zugegriffen werden. \\
+				\lc{using namespace MyLib1;} \\
+				\lc{foo();}			
+			\end{compactitem}
+		\end{minipage}
+		\subsubsection{namenlose Namensräume}
+			\begin{minipage}[t]{4cm}
+				Anstelle von \lc{static} in $C$
+			\end{minipage}
+			\hspace*{0.5cm}
+			\begin{minipage}[t]{3cm}
+				\vspace*{-0.2cm}
+				\lstinputlisting{code/namelessNamespace.cpp}
+			\end{minipage}
+			
+	\subsection{Deklarationen}
+		\subsubsection{Speicherklassenattribute}
+			\begin{compactitem}
+				\item \lc{auto}: gilt als Standard wenn nichts anderes steht. Gültigkeitsbereich der \lc{auto} Variablen ist innerhalb des Blockes in dem sie deklariert wurde.
+				\item \lc{register}: Hinweis an den Compiler möglichst die Variable in einem Register abzulegen.
+				\item \lc{static}: Variablen leben von ihrer Deklaration bis zum Programmende. Geeignet um zum Bsp. Funktionsaufrufe zu zählen anstatt mit globaler Variable.
+				\item \lc{extern}: Zugriff auf eine \lc{static} Variable in einem anderen File, welches zu einem gesamten Programm gelinkt wurde.
+				\item \lc{mutable}: Klassenelemente mit \lc{const} oder \lc{static} Attributen können nachträglich verändert werden.
+			\end{compactitem}
+	
+		\subsubsection{Typqualifikatoren}
+		\begin{compactitem}
+			\item \lc{const}: Objekte dürfen nicht verändert werden. RValues.
+			\item \lc{volatile}: Objekte werden evtl. von Aussen im Programmverlauf verändert, und dürfen daher vom Compiler nicht zu Optimierungszwecken zwischengespeichert werden. Sie werden immer aus dem Hauptspeicher eingelesen.\\
+			Verlangsamt das Programm, sollte daher gezielt eingesetzt werden.
+		\end{compactitem}
+		
+		\subsubsection{typedef}
+			\begin{minipage}[t]{10 cm}
+				\vspace*{-0.3cm}\lstinputlisting[language=C,tabsize=2]{code/typedef.c}
+			\end{minipage}
+			\begin{minipage}[t]{9 cm}
+				\vspace*{-0.35cm}
+				Das Schlüsselwort \lc{typedef} ermöglicht die Einführung neuer Bezeichner, die dann im Programm anstelle von anderen Typen verwendet werden können. \lc{typedef} führt allerdings keine neuen Typen, sondern Synonyme für einen existierenden Datentyp ein. Es ist also mehr oder weniger eine Textersetzung.
+			\end{minipage}
+		 
+	\newpage\subsection{Type-cast}
+		\subsubsection{implizite-Typumwandlung}
+			Ausdrücke werden bei einer Zuweisung automatisch in den erwarteten Typ umgewandelt.
+			\lstinputlisting{code/typecast.c}
+	
+	\begin{minipage}[t]{4 cm}
+		\subsubsection{$C$-Stil}
+			\lstinputlisting{code/typecast2.c}
+	\end{minipage}
+	\hspace*{0.5cm}
+	\begin{minipage}[t]{4cm}
+		\subsubsection{Funktions-Stil}
+			\lstinputlisting{code/typecast3.c}
+	\end{minipage}
+	\hspace*{0.5cm}
+	\begin{minipage}[t]{9.5cm}
+		\vspace*{0.1cm}
+		{\bfseries Achtung:} Den \lc{C}- und Funktions-Stil sollte in \lc{C++} nicht verwendet werden, da daraus der Grund für die Typumwandlung nicht erkannt wird und der Compiler keine Prüfung durchführt. Deshalb stellt \lc{C++} die folgenden spezifischen und sichereren Typumwandlungen zur Verfügung.
+	\end{minipage}
+	
+	\subsubsection{Neu in $C++$:}
+		\paragraph{\lc{const\_cast}}
+			Ausschliesslich bei der Entfernung des \lc{const}-Qualifikators.\\
+			Syntax:
+			\lstinputlisting{code/constcast.c}
+			Beispiel:
+			\lstinputlisting{code/constcast_bsp.cpp}
+		\paragraph{\lc{static\_cast}}
+			Umwandeln eines Klassenobjekt in ein Objekt seiner Basisklasse. Syntax ist analog zu \lc{const\_cast}.\\
+			Beispiel:
+			\lstinputlisting{code/staticcast.cpp}
+		\paragraph{\lc{dynamic\_cast}}	
+			Umwandlung von Polymorphen Objekten im Zusammenhang mit dem Typsystem von C++.\\
+			Beispiel:
+			\lstinputlisting{code/dynamiccast.cpp}
+		\paragraph{\lc{reinterpret\_cast}}
+			Neue Interpretation der zugrunde liegenden Bitkette.\\
+			Beispiel:
+			\lstinputlisting{code/reinterpret_cast.cpp}
+		
+		

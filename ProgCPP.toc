@@ -1,0 +1,179 @@
+\babel@toc {ngerman}{}
+\contentsline {section}{\numberline {1}Ein- und Ausgabe}{4}{section.1}% 
+\contentsline {subsection}{\numberline {1.1}Streamkonzept}{4}{subsection.1.1}% 
+\contentsline {subsection}{\numberline {1.2}Eingabebeispiele}{4}{subsection.1.2}% 
+\contentsline {subsection}{\numberline {1.3}Ausgabebeispiele}{4}{subsection.1.3}% 
+\contentsline {subsection}{\numberline {1.4}Formatierte Ein- und Ausgabe: Manipulatoren ohne Parameter}{4}{subsection.1.4}% 
+\contentsline {subsubsection}{\numberline {1.4.1}boolalpha}{4}{subsubsection.1.4.1}% 
+\contentsline {subsubsection}{\numberline {1.4.2}showbase}{4}{subsubsection.1.4.2}% 
+\contentsline {subsubsection}{\numberline {1.4.3}showpoint}{4}{subsubsection.1.4.3}% 
+\contentsline {subsubsection}{\numberline {1.4.4}showpos}{4}{subsubsection.1.4.4}% 
+\contentsline {subsubsection}{\numberline {1.4.5}uppercase}{4}{subsubsection.1.4.5}% 
+\contentsline {subsubsection}{\numberline {1.4.6}dec, hex, oct}{4}{subsubsection.1.4.6}% 
+\contentsline {subsection}{\numberline {1.5}Formatierte Ein- und Ausgabe: Manipulatoren mit Parameter}{5}{subsection.1.5}% 
+\contentsline {subsubsection}{\numberline {1.5.1}setw()}{5}{subsubsection.1.5.1}% 
+\contentsline {subsubsection}{\numberline {1.5.2}setfill()}{5}{subsubsection.1.5.2}% 
+\contentsline {subsubsection}{\numberline {1.5.3}setprecision()}{5}{subsubsection.1.5.3}% 
+\contentsline {subsection}{\numberline {1.6}Streams und Dateien}{5}{subsection.1.6}% 
+\contentsline {subsubsection}{\numberline {1.6.1}\"Offnen von Dateien}{5}{subsubsection.1.6.1}% 
+\contentsline {subsubsection}{\numberline {1.6.2}Lesen und Setzen von Positionen}{5}{subsubsection.1.6.2}% 
+\contentsline {section}{\numberline {2}Ausdr\"ucke und Operatoren}{6}{section.2}% 
+\contentsline {subsection}{\numberline {2.1}Auswertungsreihenfolge}{6}{subsection.2.1}% 
+\contentsline {subsubsection}{\numberline {2.1.1}Assoziativit\"at}{6}{subsubsection.2.1.1}% 
+\contentsline {subsubsection}{\numberline {2.1.2}Priorit\"at}{6}{subsubsection.2.1.2}% 
+\contentsline {section}{\numberline {3}Funktionen}{7}{section.3}% 
+\contentsline {subsection}{\numberline {3.1}\"Uberladene Funktionen}{7}{subsection.3.1}% 
+\contentsline {subsection}{\numberline {3.2}Vorbelegte Parameter}{7}{subsection.3.2}% 
+\contentsline {subsection}{\numberline {3.3}$inline$-Funktionen vs. $C$-Makros}{7}{subsection.3.3}% 
+\contentsline {subsubsection}{\numberline {3.3.1}$C$-Makros}{7}{subsubsection.3.3.1}% 
+\contentsline {subsubsection}{\numberline {3.3.2}$inline$-Funktionen}{7}{subsubsection.3.3.2}% 
+\contentsline {section}{\numberline {4}H\"ohere und strukturierte Datentypen}{8}{section.4}% 
+\contentsline {subsection}{\numberline {4.1}Pointer}{8}{subsection.4.1}% 
+\contentsline {subsubsection}{\numberline {4.1.1}Null-Pointer}{8}{subsubsection.4.1.1}% 
+\contentsline {subsubsection}{\numberline {4.1.2}$void$-Pointer}{8}{subsubsection.4.1.2}% 
+\contentsline {subsubsection}{\numberline {4.1.3}Pointer auf Funktionen}{8}{subsubsection.4.1.3}% 
+\contentsline {subsubsection}{\numberline {4.1.4}const bei Pointern}{8}{subsubsection.4.1.4}% 
+\contentsline {paragraph}{\numberline {4.1.4.1}konstanter String}{8}{paragraph.4.1.4.1}% 
+\contentsline {paragraph}{\numberline {4.1.4.2}konstanter Pointer}{8}{paragraph.4.1.4.2}% 
+\contentsline {paragraph}{\numberline {4.1.4.3}konst. Pointer auf konst. String}{8}{paragraph.4.1.4.3}% 
+\contentsline {subsection}{\numberline {4.2}Referenzen}{8}{subsection.4.2}% 
+\contentsline {subsection}{\numberline {4.3}Pointer und Referenzen als R\"uckgabewert und Parameter\"ubergabe}{8}{subsection.4.3}% 
+\contentsline {subsubsection}{\numberline {4.3.1}call by reference}{9}{subsubsection.4.3.1}% 
+\contentsline {subsubsection}{\numberline {4.3.2}call by value}{9}{subsubsection.4.3.2}% 
+\contentsline {subsection}{\numberline {4.4}Dynamische Speicherverwaltung}{9}{subsection.4.4}% 
+\contentsline {subsubsection}{\numberline {4.4.1}pro Memoria: Variablen}{9}{subsubsection.4.4.1}% 
+\contentsline {subsubsection}{\numberline {4.4.2}Dynamische Speicherverwaltung}{9}{subsubsection.4.4.2}% 
+\contentsline {subsubsection}{\numberline {4.4.3}Syntax}{9}{subsubsection.4.4.3}% 
+\contentsline {subsubsection}{\numberline {4.4.4}Vorsichtsmassnahmen}{9}{subsubsection.4.4.4}% 
+\contentsline {subsubsection}{\numberline {4.4.5}Memory Leak, Garbage Collection}{9}{subsubsection.4.4.5}% 
+\contentsline {subsubsection}{\numberline {4.4.6}Dynamische Allozierung von Arrays}{9}{subsubsection.4.4.6}% 
+\contentsline {subsubsection}{\numberline {4.4.7}Dynamische Allozierung von Matrizen}{10}{subsubsection.4.4.7}% 
+\contentsline {paragraph}{\numberline {4.4.7.1}Variante 1}{10}{paragraph.4.4.7.1}% 
+\contentsline {paragraph}{\numberline {4.4.7.2}Variante 2}{10}{paragraph.4.4.7.2}% 
+\contentsline {paragraph}{\numberline {4.4.7.3}Vor- und Nachteile Variante 2}{10}{paragraph.4.4.7.3}% 
+\contentsline {subsection}{\numberline {4.5}Structs}{10}{subsection.4.5}% 
+\contentsline {section}{\numberline {5}G\"ultigkeitsbereiche, Namensr\"aume und Sichtbarkeit}{11}{section.5}% 
+\contentsline {subsection}{\numberline {5.1}Namensr\"aume}{11}{subsection.5.1}% 
+\contentsline {subsubsection}{\numberline {5.1.1}namenlose Namensr\"aume}{11}{subsubsection.5.1.1}% 
+\contentsline {subsection}{\numberline {5.2}Deklarationen}{11}{subsection.5.2}% 
+\contentsline {subsubsection}{\numberline {5.2.1}Speicherklassenattribute}{11}{subsubsection.5.2.1}% 
+\contentsline {subsubsection}{\numberline {5.2.2}Typqualifikatoren}{11}{subsubsection.5.2.2}% 
+\contentsline {subsubsection}{\numberline {5.2.3}typedef}{11}{subsubsection.5.2.3}% 
+\contentsline {subsection}{\numberline {5.3}Type-cast}{12}{subsection.5.3}% 
+\contentsline {subsubsection}{\numberline {5.3.1}implizite-Typumwandlung}{12}{subsubsection.5.3.1}% 
+\contentsline {subsubsection}{\numberline {5.3.2}$C$-Stil}{12}{subsubsection.5.3.2}% 
+\contentsline {subsubsection}{\numberline {5.3.3}Funktions-Stil}{12}{subsubsection.5.3.3}% 
+\contentsline {subsubsection}{\numberline {5.3.4}Neu in $C++$:}{12}{subsubsection.5.3.4}% 
+\contentsline {paragraph}{\numberline {5.3.4.1}\textit {\texttt {const\_cast}}}{12}{paragraph.5.3.4.1}% 
+\contentsline {paragraph}{\numberline {5.3.4.2}\textit {\texttt {static\_cast}}}{12}{paragraph.5.3.4.2}% 
+\contentsline {paragraph}{\numberline {5.3.4.3}\textit {\texttt {dynamic\_cast}}}{12}{paragraph.5.3.4.3}% 
+\contentsline {paragraph}{\numberline {5.3.4.4}\textit {\texttt {reinterpret\_cast}}}{12}{paragraph.5.3.4.4}% 
+\contentsline {section}{\numberline {6}Module und Datenkapseln}{13}{section.6}% 
+\contentsline {subsection}{\numberline {6.1}Motivation}{13}{subsection.6.1}% 
+\contentsline {subsection}{\numberline {6.2}Ziele der Modularisierung}{13}{subsection.6.2}% 
+\contentsline {subsection}{\numberline {6.3}Vom Modul zur Datenkapsel}{13}{subsection.6.3}% 
+\contentsline {subsection}{\numberline {6.4}Unitkonzept / Module und Datenkapseln in C++}{13}{subsection.6.4}% 
+\contentsline {subsection}{\numberline {6.5}Die Schnittstellendatei}{13}{subsection.6.5}% 
+\contentsline {subsection}{\numberline {6.6}Die Implementierungsdatei}{13}{subsection.6.6}% 
+\contentsline {subsection}{\numberline {6.7}Buildprozess / Makefile}{14}{subsection.6.7}% 
+\contentsline {subsubsection}{\numberline {6.7.1}Make-File}{14}{subsubsection.6.7.1}% 
+\contentsline {section}{\numberline {7}Klassenkonzept}{15}{section.7}% 
+\contentsline {subsection}{\numberline {7.1}Begriff der Klasse}{15}{subsection.7.1}% 
+\contentsline {subsection}{\numberline {7.2}UML ist...}{15}{subsection.7.2}% 
+\contentsline {subsection}{\numberline {7.3}UML-Notation einer Klasse}{15}{subsection.7.3}% 
+\contentsline {subsection}{\numberline {7.4}\"Ublicher Aufbau einer Klassensyntax}{15}{subsection.7.4}% 
+\contentsline {subsubsection}{\numberline {7.4.1}Zugriffsschutz}{15}{subsubsection.7.4.1}% 
+\contentsline {subsubsection}{\numberline {7.4.2}Operationen einer Klasse}{15}{subsubsection.7.4.2}% 
+\contentsline {subsubsection}{\numberline {7.4.3}Information Hiding}{15}{subsubsection.7.4.3}% 
+\contentsline {paragraph}{\numberline {7.4.3.1}$friend$-Elemente}{15}{paragraph.7.4.3.1}% 
+\contentsline {subsubsection}{\numberline {7.4.4}Beispiel an der Klasse Rechteck}{16}{subsubsection.7.4.4}% 
+\contentsline {subsection}{\numberline {7.5}Elementfunktionen}{16}{subsection.7.5}% 
+\contentsline {subsubsection}{\numberline {7.5.1}Klassifizierung von Elementfunktionen}{16}{subsubsection.7.5.1}% 
+\contentsline {subsubsection}{\numberline {7.5.2}$inline$-Funktionen}{16}{subsubsection.7.5.2}% 
+\contentsline {subsubsection}{\numberline {7.5.3}mutable - Attribut}{17}{subsubsection.7.5.3}% 
+\contentsline {subsubsection}{\numberline {7.5.4}const - Elementfunktion}{17}{subsubsection.7.5.4}% 
+\contentsline {subsection}{\numberline {7.6}static - Klassenelemente}{17}{subsection.7.6}% 
+\contentsline {subsection}{\numberline {7.7}$this$ - Pointer}{17}{subsection.7.7}% 
+\contentsline {subsection}{\numberline {7.8}Konstruktor (am Beispiel der Klasse TString)}{17}{subsection.7.8}% 
+\contentsline {subsubsection}{\numberline {7.8.1}Aufgaben des Konstruktors}{17}{subsubsection.7.8.1}% 
+\contentsline {subsubsection}{\numberline {7.8.2}Aufruf des Konstuktors}{17}{subsubsection.7.8.2}% 
+\contentsline {subsubsection}{\numberline {7.8.3}Default-Konstruktor}{17}{subsubsection.7.8.3}% 
+\contentsline {subsubsection}{\numberline {7.8.4}Implementation/Initialisierung}{18}{subsubsection.7.8.4}% 
+\contentsline {paragraph}{\numberline {7.8.4.1}mittels Anweisung}{18}{paragraph.7.8.4.1}% 
+\contentsline {paragraph}{\numberline {7.8.4.2}mittels Initialisierungsliste}{18}{paragraph.7.8.4.2}% 
+\contentsline {subsubsection}{\numberline {7.8.5}\"Uberladen von Konstruktoren}{18}{subsubsection.7.8.5}% 
+\contentsline {subsubsection}{\numberline {7.8.6}Konstruktoren und Function Casts}{18}{subsubsection.7.8.6}% 
+\contentsline {subsubsection}{\numberline {7.8.7}Explizite Konstruktoren}{18}{subsubsection.7.8.7}% 
+\contentsline {subsubsection}{\numberline {7.8.8}Copy-Konstruktor}{18}{subsubsection.7.8.8}% 
+\contentsline {paragraph}{\numberline {7.8.8.1}Shallow Copy vs. Deep Copy}{18}{paragraph.7.8.8.1}% 
+\contentsline {paragraph}{\numberline {7.8.8.2}Shallow-Copy}{18}{paragraph.7.8.8.2}% 
+\contentsline {paragraph}{\numberline {7.8.8.3}Deep-Copy}{18}{paragraph.7.8.8.3}% 
+\contentsline {subsection}{\numberline {7.9}Destruktor}{19}{subsection.7.9}% 
+\contentsline {subsection}{\numberline {7.10}Member In-Class Initialization}{19}{subsection.7.10}% 
+\contentsline {subsection}{\numberline {7.11}kanonische Form von Klassen}{19}{subsection.7.11}% 
+\contentsline {subsection}{\numberline {7.12}Unions}{19}{subsection.7.12}% 
+\contentsline {subsubsection}{\numberline {7.12.1}Beispiel}{19}{subsubsection.7.12.1}% 
+\contentsline {subsection}{\numberline {7.13}Bitfelder}{19}{subsection.7.13}% 
+\contentsline {subsection}{\numberline {7.14}\"Uberladen von Operatoren}{20}{subsection.7.14}% 
+\contentsline {subsubsection}{\numberline {7.14.1}\"Uberladbare Operatorfunktionen in C++}{20}{subsubsection.7.14.1}% 
+\contentsline {subsubsection}{\numberline {7.14.2}Randbedingungen}{20}{subsubsection.7.14.2}% 
+\contentsline {subsubsection}{\numberline {7.14.3}Operator Overloading als Elementfunktion}{20}{subsubsection.7.14.3}% 
+\contentsline {subsubsection}{\numberline {7.14.4}Operator Overloading als normale Funktion}{20}{subsubsection.7.14.4}% 
+\contentsline {section}{\numberline {8}Templates}{21}{section.8}% 
+\contentsline {subsection}{\numberline {8.1}Motivation}{21}{subsection.8.1}% 
+\contentsline {subsection}{\numberline {8.2}Funktions-Templates}{21}{subsection.8.2}% 
+\contentsline {subsubsection}{\numberline {8.2.1}Syntax}{21}{subsubsection.8.2.1}% 
+\contentsline {subsubsection}{\numberline {8.2.2}inline bei Templates}{21}{subsubsection.8.2.2}% 
+\contentsline {subsubsection}{\numberline {8.2.3}\"Uberladen}{21}{subsubsection.8.2.3}% 
+\contentsline {subsubsection}{\numberline {8.2.4}Auspr\"agung}{21}{subsubsection.8.2.4}% 
+\contentsline {subsubsection}{\numberline {8.2.5}Explizite Qualifizierung}{21}{subsubsection.8.2.5}% 
+\contentsline {subsection}{\numberline {8.3}Klassen-Templates}{22}{subsection.8.3}% 
+\contentsline {subsubsection}{\numberline {8.3.1}Definition}{22}{subsubsection.8.3.1}% 
+\contentsline {subsubsection}{\numberline {8.3.2}Syntax}{22}{subsubsection.8.3.2}% 
+\contentsline {subsection}{\numberline {8.4}Klassen-Templates und getrennte \"Ubersetzung}{22}{subsection.8.4}% 
+\contentsline {subsubsection}{\numberline {8.4.1}M\"oglichkeit 1}{22}{subsubsection.8.4.1}% 
+\contentsline {subsubsection}{\numberline {8.4.2}M\"oglichkeit 2}{22}{subsubsection.8.4.2}% 
+\contentsline {section}{\numberline {9}Vererbung (Inheritance)}{23}{section.9}% 
+\contentsline {subsection}{\numberline {9.1}Einsatz der Vererbung}{23}{subsection.9.1}% 
+\contentsline {subsection}{\numberline {9.2}Ableiten einer Klasse}{23}{subsection.9.2}% 
+\contentsline {subsection}{\numberline {9.3}Zugriff auf Elemente der Basisklasse}{23}{subsection.9.3}% 
+\contentsline {subsection}{\numberline {9.4}Slicing Problem}{23}{subsection.9.4}% 
+\contentsline {subsection}{\numberline {9.5}Vererbung und G\"ultigkeitsbereiche}{23}{subsection.9.5}% 
+\contentsline {subsection}{\numberline {9.6}Elementfunktionen bei abgeleiteten Klassen}{24}{subsection.9.6}% 
+\contentsline {subsubsection}{\numberline {9.6.1}Konstruktoren}{24}{subsubsection.9.6.1}% 
+\contentsline {subsubsection}{\numberline {9.6.2}Initialisierung durch Chaining}{24}{subsubsection.9.6.2}% 
+\contentsline {subsubsection}{\numberline {9.6.3}Copy-Konstruktor}{24}{subsubsection.9.6.3}% 
+\contentsline {subsubsection}{\numberline {9.6.4}Destruktor}{24}{subsubsection.9.6.4}% 
+\contentsline {subsubsection}{\numberline {9.6.5}\"Uberschreiben von ererbten Methoden}{24}{subsubsection.9.6.5}% 
+\contentsline {section}{\numberline {10}Polymorphismus / Mehrfachvererbung / RTTI}{25}{section.10}% 
+\contentsline {subsection}{\numberline {10.1}Polymorphismus}{25}{subsection.10.1}% 
+\contentsline {subsubsection}{\numberline {10.1.1}Problem}{25}{subsubsection.10.1.1}% 
+\contentsline {subsubsection}{\numberline {10.1.2}static Binding}{25}{subsubsection.10.1.2}% 
+\contentsline {subsubsection}{\numberline {10.1.3}dynamic Binding}{25}{subsubsection.10.1.3}% 
+\contentsline {subsubsection}{\numberline {10.1.4}Beispiel}{25}{subsubsection.10.1.4}% 
+\contentsline {subsubsection}{\numberline {10.1.5}Polymorphe (virtuelle) Klassen}{25}{subsubsection.10.1.5}% 
+\contentsline {subsubsection}{\numberline {10.1.6}Repr\"asentation polymorpher Objekte im Speicher}{25}{subsubsection.10.1.6}% 
+\contentsline {subsection}{\numberline {10.2}Abstrakte Klassen}{26}{subsection.10.2}% 
+\contentsline {subsection}{\numberline {10.3}Mehrfachvererbung}{26}{subsection.10.3}% 
+\contentsline {subsection}{\numberline {10.4}RTTI (Laufzeit-Typinformation)}{27}{subsection.10.4}% 
+\contentsline {subsubsection}{\numberline {10.4.1}Operator dynamic\_cast}{27}{subsubsection.10.4.1}% 
+\contentsline {subsubsection}{\numberline {10.4.2}Operator typeid}{27}{subsubsection.10.4.2}% 
+\contentsline {subsubsection}{\numberline {10.4.3}Struktur type\_info}{27}{subsubsection.10.4.3}% 
+\contentsline {section}{\numberline {11}Assertions}{27}{section.11}% 
+\contentsline {subsection}{\numberline {11.1}\textit {\texttt {static\_assert}}}{27}{subsection.11.1}% 
+\contentsline {section}{\numberline {12}Exception Handling}{28}{section.12}% 
+\contentsline {subsection}{\numberline {12.1}Handling Strategie von System Exceptions}{28}{subsection.12.1}% 
+\contentsline {subsection}{\numberline {12.2}Ziel}{28}{subsection.12.2}% 
+\contentsline {subsection}{\numberline {12.3}Exceptionhandling in \textit {\texttt {C++}}}{28}{subsection.12.3}% 
+\contentsline {subsubsection}{\numberline {12.3.1}Ausl\"osen (Werfen) von Ausnahmen}{28}{subsubsection.12.3.1}% 
+\contentsline {subsubsection}{\numberline {12.3.2}Syntax}{28}{subsubsection.12.3.2}% 
+\contentsline {subsubsection}{\numberline {12.3.3}Exception-Hierarchie in \textit {\texttt {C++}} und ihre Headers}{28}{subsubsection.12.3.3}% 
+\contentsline {subsubsection}{\numberline {12.3.4}Laufzeit- vs. Logische Fehler}{28}{subsubsection.12.3.4}% 
+\contentsline {subsubsection}{\numberline {12.3.5}Mehrere Catches}{29}{subsubsection.12.3.5}% 
+\contentsline {paragraph}{\numberline {12.3.5.1}Exception Specification}{29}{paragraph.12.3.5.1}% 
+\contentsline {section}{\numberline {13}Beispiele}{30}{section.13}% 
+\contentsline {subsection}{\numberline {13.1}Stack als Klasse}{30}{subsection.13.1}% 
+\contentsline {subsection}{\numberline {13.2}Stack als Template}{32}{subsection.13.2}% 
+\contentsline {subsection}{\numberline {13.3}Vererbung Comiccharacter}{34}{subsection.13.3}% 
+\contentsline {subsection}{\numberline {13.4}Mehrfachvererbung Comiccharacter}{37}{subsection.13.4}% 
+\contentsline {subsection}{\numberline {13.5}RTTI}{43}{subsection.13.5}% 

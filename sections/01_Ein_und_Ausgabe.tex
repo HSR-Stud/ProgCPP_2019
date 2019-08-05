@@ -1,0 +1,176 @@
+\section{Ein- und Ausgabe}
+	Um die \lc{C++} Ein- und Ausgaben nutzen zu können, muss man die Bibliothek iostream einbinden. Das geschieht mit:
+	\lstinputlisting{code/iostream.cpp}
+	Damit die Ein- und Ausgabebefehle auch wirklich genutzt werden können, müssen sie mithilfe von
+	\lstinputlisting{code/using_namespace_std.cpp}
+	noch bekanntgegeben werden.\newline	
+	\begin{minipage}[t]{11 cm}		
+		\subsection{Streamkonzept}
+			\begin{compactitem}
+				\item Ein \lc{Stream} repräsentiert einen sequentiellen Datenstrom.
+				\item \lc{C++} stellt 4 Standardstreams zur Verfügung:
+					\begin{compactitem}
+						\item \lc{cin}: Standard-Eingabesteam
+						\item \lc{cout}: Standard-Ausgabestream
+						\item \lc{cerr}: Standard-Fehlerausgabestream
+						\item \lc{clog}: mit \lc{cerr} gekoppelt
+					\end{compactitem}
+				\item Alle diese Streams können auch mit einer Datei verbunden werden.	
+				\item Alle Schlüsselwörter müssen immer ganz links auf der Zeile stehen!\newline
+			\end{compactitem} 
+	\end{minipage}
+	\hspace*{0.5cm}	
+	\begin{minipage}[t]{7 cm}
+		\subsection{Eingabebeispiele}
+			\lstinputlisting{code/eingabe_3.cpp}	
+	\end{minipage}
+	\hspace{0.5cm}
+	\subsection{Ausgabebeispiele}
+		\lstinputlisting{code/ausgabe_3.cpp}
+		\lstinputlisting{code/ausgabe_4.cpp}
+		
+	\subsection{Formatierte Ein- und Ausgabe: Manipulatoren ohne Parameter}
+	\lc{ios}, eine Basisklasse von \lc{iostream}, stellt verschiedene Möglichkeiten (Format Flags) zur Verfügung, um die Ein- und Ausgabe zu beeinflussen.\newline
+		\begin{minipage}[t]{7 cm}
+			\subsubsection{boolalpha} 
+				\lc{bool}-Werte werden textuell ausgegeben.
+				\lstinputlisting{code/boolalpha.cpp}
+		\end{minipage}
+		\hspace*{0.1cm}	
+		\begin{minipage}[t]{2 cm}
+				\vspace*{1.2cm}\lstinputlisting{code/boolalpha_aus.cpp}
+		\end{minipage}
+		\hspace*{0.3cm}	
+		\begin{minipage}[t]{7 cm}
+			\subsubsection{showbase} 
+				Zahlenbasis wird gezeigt.
+				\lstinputlisting{code/showbase.cpp}
+		\end{minipage}
+		\hspace*{0.1cm}	
+		\begin{minipage}[t]{2 cm}
+				\vspace*{1.2cm}\lstinputlisting{code/showbase_aus.cpp}
+		\end{minipage}		
+		
+		\begin{minipage}[t]{7 cm}
+			\subsubsection{showpoint} 
+				Dezimalpunkt wird immer ausgegeben.
+				\lstinputlisting{code/showpoint.cpp}
+		\end{minipage}
+		\hspace*{0.1cm}	
+		\begin{minipage}[t]{2 cm}
+				\vspace*{1.2cm}\lstinputlisting{code/showpoint_aus.cpp}
+		\end{minipage}
+		\hspace*{0.3cm}	
+		\begin{minipage}[t]{7 cm}
+			\subsubsection{showpos} 
+				Vorzeichen wird bei allen Zahlen angezeigt.
+				\lstinputlisting{code/showpos.cpp}
+		\end{minipage}
+		\hspace*{0.1cm}	
+		\begin{minipage}[t]{2 cm}
+				\vspace*{1.2cm}\lstinputlisting{code/showpos_aus.cpp}
+		\end{minipage}			
+		
+		\begin{minipage}[t]{7 cm}
+			\subsubsection{uppercase} 
+				Alles in Grossbuchstaben ausgeben.
+				\lstinputlisting{code/uppercase.cpp}
+		\end{minipage}
+		\hspace*{0.1cm}	
+		\begin{minipage}[t]{2 cm}
+				\vspace*{1.2cm}\lstinputlisting{code/uppercase_aus.cpp}
+		\end{minipage}
+		\hspace*{0.3cm}	
+		\begin{minipage}[t]{7 cm}
+			\subsubsection{dec, hex, oct} 
+				Ausgabe erfolgt in dezimal, hexadezimal oder oktal.
+				\lstinputlisting[language=C++,tabsize=2]{code/dec_hex_oct.cpp}
+		\end{minipage}
+		\hspace*{0.1cm}	
+		\begin{minipage}[t]{2 cm}
+				\vspace*{1.6cm}\lstinputlisting{code/dec_hex_oct_aus.cpp}
+		\end{minipage}			
+\begin{comment}
+		\begin{minipage}[t]{6.5 cm}
+			\subsubsection{fixed, scientific} 
+				Gleitkommazahlen im Fixpunktformat oder wissenschaftlich.
+				\lstinputlisting[language=C++,tabsize=2]{code/fixed_scientific.cpp}
+		\end{minipage}
+		\hspace*{0.1cm}	
+		\begin{minipage}[t]{2.5 cm}
+				\vspace*{1.6cm}\lstinputlisting{code/fixed_scientific_aus.cpp}
+		\end{minipage}
+		\hspace*{0.3cm}	
+		\begin{minipage}[t]{7 cm}
+			\subsubsection{internal, left, right} 
+				Ausgabe innerhalb Feld bzw. links oder rechtsbündig.
+				\lstinputlisting{code/internal_left_right.cpp} 
+		\end{minipage}
+		\hspace*{0.1cm}	
+		\begin{minipage}[t]{2 cm}
+				\vspace*{1.6cm}\lstinputlisting{code/internal_left_right_aus.cpp}
+		\end{minipage}	
+\end{comment}
+	\subsection{Formatierte Ein- und Ausgabe: Manipulatoren mit Parameter} 
+		Hier muss zwingend \lc{<iomanip>} eingebunden werden! \\
+		\begin{minipage}[t]{7 cm}
+			\subsubsection{setw()} 
+				Angabe der Feldbreite.
+				\lstinputlisting{code/setw.cpp} 
+			\subsubsection{setfill()} 
+				Auffüllen mit beliebigem Füllzeichen.
+				\lstinputlisting{code/setfill.cpp} 
+		\end{minipage}
+		\hspace*{0.1cm}	
+		\begin{minipage}[t]{2 cm}
+				\vspace*{1.2cm}\lstinputlisting{code/setw_aus.cpp}
+				\vspace*{1cm}\lstinputlisting{code/setfill_aus.cpp}
+		\end{minipage}
+		\hspace*{0.3cm}	
+		\begin{minipage}[t]{7 cm}
+			\subsubsection{setprecision()} 
+				Angabe der Genauigkeit einer Zahl.
+				\lstinputlisting{code/setprecision.cpp} 
+		\end{minipage}
+		\hspace*{0.1cm}	
+		\begin{minipage}[t]{2 cm}
+				\vspace*{1.2cm}\lstinputlisting{code/setprecision_aus.cpp}
+		\end{minipage}							
+	
+	\subsection{Streams und Dateien}
+		Streams sind Abstraktionen für die zeichenweise Ein-/Ausgabe. Dabei ist es egal, ob die Ausgabe auf den Bildschirm erfolgt oder auf eine Datei. Dateien können also über die normalen Möglichkeiten der Ein-/Ausgabe geschrieben bzw. gelesen werden.
+	
+		\subsubsection{Öffnen von Dateien}
+			Das Öffnen einer Datei erfolgt beim Anlegen eines Stream-Objektes beziehungsweise über die Funktion \lc{open}. Dabei werden der Name der Datei und der Öffnungsmodus als Parameter übergeben. \\
+			\begin{minipage}[t]{10,4 cm}
+				\lstinputlisting{code/file_open.cpp} 
+			\end{minipage}
+			\hspace*{0.1cm}
+			\begin{minipage}[t]{8 cm}
+				\begin{tabular}[t]{|p{1.5cm}|p{6cm}|}
+					\hline
+						\textbf{Modus} & \textbf{Kommentar} \\
+					\hline 
+						\lc{in} & Datei für Eingabe öffnen \\
+						\lc{out} & Datei für Ausgabe öffnen \\
+						\lc{app} & Schreiboperationen am Dateiende ausführen \\
+						\lc{ate} & Nach dem Öffnen der Datei sofort an das Dateiende verzweigen \\
+						\lc{trunc} & Zu öffnende Datei zerstören, falls sie bereits existiert \\
+						\lc{bin[ary]} & Ein-/Ausgabe wird binär durchgeführt und nicht im Textmodus \\
+					\hline
+				\end{tabular}
+			\end{minipage}
+			
+		\subsubsection{Lesen und Setzen von Positionen}
+			Die aktuelle Position innerhalb einer Datei kann beliebig verändert werden. Dazu stehen folgende Typen und Methoden zur Verfügung:
+			\begin{compactitem}
+				\item \lc{streampos} ist der Typ einer Dateiposition.
+				\item \lc{seekg(offset, direction)} zum Beispiel setzt die aktuelle Dateiposition einer Datei. \lc{offset} gibt die Position vom Dateianfang bzw. -ende aus an, \lc{direction} legt fest, von wo aus die Position bestimmt wird.
+				\begin{compactitem}
+					\item \lc{ios::beg}: Dateianfang
+					\item \lc{ios::cur}: Aktuelle Position
+					\item \lc{ios::end}: Dateiende
+				\end{compactitem}
+				\item \lc{tellg} liefert die aktuelle Position in der Datei.
+				\item \lc{seekp} und \lc{tellp} sind die entsprechenden Versionen für die Put-Varianten.
+			\end{compactitem}

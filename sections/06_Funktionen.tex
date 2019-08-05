@@ -1,0 +1,66 @@
+\newpage
+\section{Funktionen}
+	Im Vergleich zu \lc{C} funktionieren Funktionen in \lc{C++}	genau gleich, zusätzlich gibt es aber einige neue, nützliche Eigenschaften:
+	\begin{compactitem}
+		\begin{multicols}{2}
+			\item Vorbelegung von Parametern (Default-Argumente)
+			\item überladen von Fuktionen (Overloading)
+			\item Operatorfunktionen
+			\item inline-Funktionen
+		\end{multicols}
+	\end{compactitem}	
+	\subsection{Überladene Funktionen}
+		\begin{minipage}[t]{13cm}
+			\begin{compactitem}
+				\item Die Identifikation einer Funktion erfolgt über die Signatur, nicht nur über den Namen. Die Signatur besteht aus dem Namen der Funktion plus der Parameterliste (Reihenfolge, Anzahl, Typ). Der Returntyp wird nicht berücksichtigt.
+				\item Der Name der Funktionen ist identisch.
+				\item Die Implementation muss für jede überladene Funktion separat erfolgen.
+				\item Overloading sollte zurückhaltend eingesetzt werden. Wenn möglich sind Default-Argumente vorzuziehen.
+			\end{compactitem}
+		\end{minipage}
+		\hspace*{0.5cm}
+		\begin{minipage}[t]{5cm}
+			\vspace*{-0.3cm}
+			\lstinputlisting{code/overloading.cpp}
+		\end{minipage}
+	
+	\subsection{Vorbelegte Parameter}
+		\begin{minipage}[t]{8 cm}
+			\begin{compactitem}
+				\item Parametern können im Funktionsprototypen Defaultwerte	zugewiesen werden. 
+				\item Beim Funktionsaufruf können (aber müssen nicht) die Parameter mit Defaultwerten weggelassen	werden.
+				\item Achtung: Hinter (rechts von) einem Default-Argument darf kein nicht vorbelegter Parameter mehr folgen!
+			\end{compactitem}
+		\end{minipage}
+		\hspace*{0.5cm}
+		\begin{minipage}[t]{10 cm}	
+			\vspace*{-0.3cm}
+			\lstinputlisting[language=C++,tabsize=2]{code/default_parameter.cpp}
+		\end{minipage}
+					
+	\subsection{$inline$-Funktionen vs. $C$-Makros}
+		\begin{minipage}[t]{8 cm}
+			\subsubsection{$C$-Makros}
+				\begin{compactitem}
+					\item $C$-Makros werden definiert mit $\#define$.
+					\item $C$-Makros bewirken eine reine Textersetzung ohne jegliche Typenprüfung.
+					\item Bei Nebeneffekten (welche zwar vermieden werden sollten) verhalten sich Makros nicht wie beabsichtigt.
+					\item $C$-Makros lösen zwar das Problem mit dem Overhead, sind aber sehr unsicher.				
+				\end{compactitem}
+				\lstinputlisting[language=C,tabsize=2]{code/c_makro.c}
+			\end{minipage}
+			\hspace*{0.5cm}
+			\begin{minipage}[t]{10 cm}	
+				\subsubsection{$inline$-Funktionen}
+					\begin{compactitem}
+						\item Lösen das Overhead-Problem.
+						\item Textersetzung mit Typenprüfung.
+						\item Einsetzen wenn der Codeumfang der Funktion sehr klein ist und die Funktion häufig aufgerufen wird (z.B. in Schleifen).
+						\item Rekursive Funktionen und Funktionen, auf die mit einem Funktionspointer gezeigt wird, werden nicht ge-$inlined$.
+					\end{compactitem}
+					\lstinputlisting[language=C++,tabsize=2]{code/inline.cpp}
+			\end{minipage}	
+		
+
+	
+	

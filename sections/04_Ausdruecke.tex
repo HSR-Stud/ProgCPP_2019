@@ -1,0 +1,72 @@
+\newpage
+\section{Ausdrücke und Operatoren}
+	Ähnlich wie mathematische Ausdrücke stellen auch Ausdrücke in \lc{C++} Berechnungen dar und bestehen aus Operanden und Operatoren. Die Auswertung jedes Ausdrucks liefert einen Wert, der sich aus der Verknüpfung von Operanden durch Operatoren ergibt. 
+	
+	\subsection{Auswertungsreihenfolge}
+		%Alle Ausdrücke werden nach bestimmten Regeln ausgewertet. Massgeblich für die Art der Auswertung sind dabei Assoziativität und Priorität der Operatoren. \\
+		\vspace*{-0.3cm}\begin{tabular}[t]{|p{1.5cm}|p{4cm}|p{8.5cm}|p{3.5cm}|}
+			\hline	
+				\textbf{Priorität} & \textbf{Operator} & \textbf{Beschreibung} & \textbf{Assoziativität} \\
+			\hline
+				1 & \lc{::} & Bereichsauflösung &  von links nach rechts\\
+			\hline
+				\multirow{5}{*}{2} & \lc{++ -\phantom{}-} & Suffix-/Postfix-Inkrement und -Dekrement & \multirow{5}{*}{von links nach rechts}\\
+				& \lc{()} & Funktionsaufruf & \\
+				& \lc{[]} & Arrayindizierung & \\
+				& \lc{.} & Elementselektion einer Referenz & \\
+				& \lc{->} & Elementselektion eines Zeigers & \\
+			\hline
+				\multirow{9}{*}{3} & \lc{++ -\phantom{}-} & Präfix-Inkrement und -Dekrement & \multirow{9}{*}{von rechts nach links} \\
+				& \lc{+ -} & unäres plus und unäres Minus & \\
+				& \lc{! \~} & logisches NOT und bitweises NOT & \\
+				& \lc{(type)} & Typkonvertierung & \\
+				& \lc{*} & Dereferenzierung & \\
+				& \lc{\&} & Adresse von & \\
+				& \lc{sizeof} & Typ-/Objektgrösse & \\
+				& \lc{new, new[]} & Reservierung Dynamischen Speichers & \\
+				& \lc{delete, delete[]} & Freigabe Dynamischen Speichers & \\
+			\hline
+				4 & \lc{.* ->*} & Zeiger-auf-Element & von links nach rechts \\
+			\hline
+				5 & \lc{* / \%} & Multiplikation, Division und Rest & von links nach rechts \\
+			\hline
+				6 & \lc{+ -} & Addition und Subtraktion & von links nach rechts \\
+			\hline
+				7 & \lc{<\phantom{}< >\phantom{}>} & bitweise Rechts- und Linksverschiebung & von links nach rechts \\
+			\hline
+				\multirow{2}{*}{8} & \lc{< <=} & kleiner-als und kleiner-gleich & \multirow{2}{*}{von links nach rechts}\\
+				& \lc{> >=} & grösser-als und grösser-gleich & \\
+			\hline
+				9 & \lc{== !=} & gleich und ungleich & von links nach rechts \\
+			\hline
+				10 & \lc{\&} & bitweises AND & von links nach rechts \\
+			\hline
+				11 & \lc{\textasciicircum} & bitweise XOR & von links nach rechts \\
+			\hline
+				12 & \lc{|} & bitweises OR & von links nach rechts \\
+			\hline
+				13 & \lc{\&\&} & logisches AND & von links nach rechts \\
+			\hline
+				14 & \lc{||} & logisches OR & von links nach rechts \\
+			\hline
+				\multirow{6}{*}{15} & \lc{?:} & bedingte Zuweisung & \multirow{6}{*}{von rechts nach links}\\
+				& \lc{=} & einfache Zuweisung & \\
+				& \lc{+= -=} & Zuweisung nach Addition/Subtraktion & \\
+				& \lc{*= /= \%=} & Zuweisung nach Multiplikation, Division, Rest & \\
+				& \lc{<\phantom{}<= >\phantom{}>=} & Zuweisung nach Links-, Rechtsverschiebung & \\
+				& \lc{\&= \textasciicircum= |=} & Zuweisung nach bitweisem AND, XOR und OR & \\
+			\hline
+				16 & \lc{throw} & Ausnahme werfen & von rechts nach links \\
+			\hline
+				17 & \lc{,} & Komma (Sequenzoperator) & von links nach rechts \\
+			\hline
+		\end{tabular}
+
+		\ \\ (Priorität 1 hat Vorrang vor allen anderen)
+		
+		\subsubsection{Assoziativität}
+			Die Assoziativität gibt Auskunft über die Auswertungsreihenfolge der Operanden eines Ausdrucks. So wird zum Beispiel im Ausdruck \lc{p++} zuerst \lc{p} ausgewertet und dann die linke Seite des Operators \lc{++} (\lc{p}) erhöht, während der Ausdruck \lc{++p} zuerst \lc{p} erhöht und dann den Ausdruck auswertet.
+			\lstinputlisting[language=C++,tabsize=2]{code/prio1.cpp}
+			
+		\subsubsection{Priorität}
+			Die Priorität von Operatoren wiederum gibt an, in welcher Reihenfolge die verschiedenen Operanden eines Ausdrucks ausgewertet werden. Die multiplikativen Operatoren weisen zum Beispiel eine höhere Priorität als die additiven Operatoren auf.			
