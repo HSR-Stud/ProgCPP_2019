@@ -1,0 +1,1 @@
+reinterpret_cast<int*>str // char Pointer str wird in int-Pointer gewandelt.

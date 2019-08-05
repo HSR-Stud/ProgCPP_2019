@@ -1,0 +1,1 @@
+static_cast<SuperHero>Batman;
