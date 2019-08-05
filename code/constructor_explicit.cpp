@@ -1,0 +1,1 @@
+explicit TString(int nr);

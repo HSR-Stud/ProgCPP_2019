@@ -1,0 +1,1 @@
+const char* const text = str;
